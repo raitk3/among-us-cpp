@@ -1,0 +1,4 @@
+ifndef TASKSWINDOW_H
+#define TASKSWINDOW_H
+
+#endif // TASKSWINDOW_H
