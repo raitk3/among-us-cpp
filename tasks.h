@@ -69,6 +69,8 @@ void filter(data app_data);
 
 void fuel(data app_data);
 
+int get_manifolds_number(coords location);
+
 void manifolds(data app_data);
 
 void reactor(data app_data);

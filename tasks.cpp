@@ -152,6 +152,25 @@ void align(data app_data)
 void asteroids(data app_data)
 {
     std::cout << "Doing asteroids" << std::endl;
+
+    coords origin = coords{400, 100};
+    int size = 500;
+    int steps = 15;
+    while (check_cross(ASTEROIDS, app_data))
+    {
+        for (int x = 0; x < steps; x++)
+        {
+            for (int y = 0; y < steps; y++)
+            {
+                coords coords_to_check =
+                        correct_coords(coords{origin.x + (size / steps * x), origin.y +(size / steps * y)}, app_data.origin, false);
+
+                if (check_break()) return;
+                if (get_pixel(coords_to_check).g < 65) click(coords_to_check);
+            }
+        }
+    }
+
 };
 
 void card(data app_data)
@@ -273,10 +292,140 @@ void fuel(data app_data)
 
 };
 
-// ToDo
+//ToDo: 2, 8
+int get_manifolds_number(coords location)
+{
+    std::array<coords[7], 10> definitions
+    {
+        {{coords{14, 5}, coords{15, 15}, coords{16, 29}, coords{16, 38}, coords{6, 44}, coords{18, 44}, coords{30, 44}}, // 1
+        {coords{7, 9}, coords{17, 3}, coords{25, 12}, coords{19, 30}, coords{11, 39}, coords{7, 45}, coords{25, 45}}, // 2
+        {coords{10, 3}, coords{24, 9}, coords{19, 18}, coords{28, 22}, coords{29, 41}, coords{15, 46}, coords{3, 39}}, // 3
+        {coords{3, 3}, coords{4, 26}, coords{19, 3}, coords{19, 23}, coords{20, 35}, coords{20, 46}, coords{29, 24}}, // 4
+        {coords{10, 3}, coords{29, 2}, coords{19, 18}, coords{28, 22}, coords{29, 41}, coords{15, 46}, coords{3, 39}}, // 5
+        {coords{19, 2}, coords{9, 11}, coords{3, 28}, coords{10, 44}, coords{28, 42}, coords{29, 26}, coords{14, 22}}, // 6
+        {coords{5, 3}, coords{17, 5}, coords{30, 4}, coords{24, 15}, coords{16, 37}, coords{25, 11}, coords{17, 44}}, // 7
+        {coords{17, 2}, coords{6, 10}, coords{27, 8}, coords{17, 21}, coords{3, 35}, coords{32, 36}, coords{16, 45}}, // 8
+        {coords{19, 3}, coords{6, 13}, coords{17, 22}, coords{29, 9}, coords{29, 17}, coords{29, 32}, coords{29, 46}}, // 9
+        {coords{9, 6}, coords{6, 44}, coords{16, 45}, coords{26, 2}, coords{20, 24}, coords{28, 46}, coords{33, 24}} // 10
+        }
+    };
+
+    for (int i = 0; i < 10; i++)
+    {
+        bool success = true;
+        for (int j = 0; j < 7; j++)
+        {
+            coords offset = definitions[i][j];
+            coords pixel = coords{location.x + offset.x, location.y + offset.y};
+            if (get_pixel(pixel).r > 70)
+            {
+                success = false;
+                break;
+            }
+        }
+        if (success) return i+1;
+    }
+
+
+    /*
+     if image[(coords[0] + 12, coords[1] + 41)][0] < 70:
+            return 1
+        if image[(coords[0] + 13, coords[1] + 35)][0] < 70:
+            return 2
+        if image[(coords[0] + 19, coords[1] + 40)][0] < 70:
+            return 4
+        if image[(coords[0] + 7, coords[1] + 20)][0] < 70:
+            return 5
+        if image[(coords[0] + 26, coords[1] + 24)][0] < 70:
+            return 6
+        if image[(coords[0] + 15, coords[1] + 36)][0] < 70:
+            return 7
+        if image[(coords[0] + 23, coords[1] + 26)][0] < 70:
+            return 8
+        if image[(coords[0] + 26, coords[1] + 15)][0] < 70:
+            return 9
+        if image[(coords[0] + 10, coords[1] + 13)][0] < 70:
+            return 10
+        return 3
+     */
+    return 0;
+};
+
 void manifolds(data app_data)
 {
     std::cout << "Unlocking manifolds" << std::endl;
+
+    coords buttons[10];
+    int values[10];
+    int x_origin = 447;
+    int y_origin = 304;
+
+    int x_diff = 109;
+    int y_diff = 111;
+
+    if (!check_cross(MANIFOLDS, app_data)) return;
+
+    for (int row = 0; row < 2; row++)
+    {
+        for (int column = 0; column < 5; column ++)
+        {
+            int cell = 5 * row + column % 5;
+            coords current_coords = correct_coords(coords{x_origin + column*x_diff, y_origin + row*y_diff},
+                                                   app_data.origin, false);
+            buttons[cell] = current_coords;
+            values[cell] = get_manifolds_number(current_coords);
+        }
+    }
+
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            int value = values[5*i + j%5];
+            std::string separator = (value==10) ? "|" : "| ";
+            std::cout << separator << value;
+        }
+        std::cout << "|" << std::endl;
+
+    }
+
+
+    for (int i = 1; i < 11; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            if (values[j] == i)
+            {
+                click(buttons[j]);
+                break;
+            }
+            if (values[j] == 0)
+            {
+                click(crosses.at(MANIFOLDS));
+                wait_seconds(0.5);
+                start_task(app_data);
+                manifolds(app_data);
+                return;
+            }
+        }
+    }
+    /*
+     * x_diff = 109
+     * y_diff = 111
+     * image = self.get_screenshot()
+     * squares = []
+     * for y in range(2):
+     *     y_coord = 304 + y*y_diff
+     *     for x in range(5):
+     *         x_coord = 447 + x*x_diff
+     *         squares.append(self.get_square_value(
+     *             (x_coord, y_coord, image)))
+     * # print(squares)
+     * for i in range(1, 11):
+     *     square_to_press = squares.index(i)
+     *     self.click((447+(square_to_press % 5)*x_diff,
+     *                 304+(square_to_press // 5)*y_diff))
+     */
 };
 
 void reactor(data app_data)
@@ -390,6 +539,17 @@ void trash(data app_data)
 void vent(data app_data)
 {
     std::cout << "Cleaning vents" << std::endl;
+    coords origin = correct_coords(coords{383, 116}, app_data.origin, false);
+    coords size = {600, 530};
+    int step = 50;
+    for (int x = origin.x; x < (origin.x + size.x + 1); x += step)
+    {
+        for (int y = origin.y; y < (origin.y + size.y + 1); y += step)
+        {
+            if (check_cross(VENT, app_data) and not check_break()) click(coords{x, y});
+            else return;
+        }
+    }
 };
 
 wire_color get_wire(color wire)

@@ -45,7 +45,7 @@
         <bool>true</bool>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>4</number>
        </property>
        <widget class="QWidget" name="join_tab">
         <attribute name="title">
@@ -171,9 +171,9 @@
         <widget class="QWidget" name="gridLayoutWidget_2">
          <property name="geometry">
           <rect>
-           <x>10</x>
+           <x>0</x>
            <y>0</y>
-           <width>581</width>
+           <width>591</width>
            <height>201</height>
           </rect>
          </property>
@@ -183,6 +183,81 @@
           </font>
          </property>
          <layout class="QGridLayout" name="tasks_grid">
+          <item row="1" column="2">
+           <widget class="QPushButton" name="divert1_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Divert Power</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="course_button">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Chart Course</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="align_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Align Engine</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="vent_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Clean Vent</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="wires_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Fix Wiring</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="3">
            <widget class="QPushButton" name="filter_button">
             <property name="enabled">
@@ -198,10 +273,40 @@
             </property>
            </widget>
           </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="shields_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Prime Shields</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="distributor_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Calibrate Distributor</string>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="1">
            <widget class="QPushButton" name="asteroids_button">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="font">
              <font>
@@ -254,19 +359,52 @@
             </item>
            </layout>
           </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="download_button">
+          <item row="2" column="1">
+           <widget class="QPushButton" name="trash_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="font">
              <font>
               <pointsize>8</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Download/Upload Data</string>
+             <string>Empty Chute</string>
             </property>
            </widget>
           </item>
           <item row="3" column="3">
+           <widget class="QPushButton" name="reactor_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Start Reactor</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QPushButton" name="manifolds_button">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Unlock Manifolds</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
            <widget class="QPushButton" name="scan_button">
             <property name="font">
              <font>
@@ -278,18 +416,15 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
-           <widget class="QPushButton" name="manifolds_button">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
+          <item row="3" column="2">
+           <widget class="QPushButton" name="stabilize_button">
             <property name="font">
              <font>
               <pointsize>8</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Unlock Manifolds</string>
+             <string>Stabilize Steering</string>
             </property>
            </widget>
           </item>
@@ -308,63 +443,15 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="2">
-           <widget class="QPushButton" name="reactor_button">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="divert2_button">
             <property name="font">
              <font>
               <pointsize>8</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Start Reactor</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QPushButton" name="trash_button">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Empty Chute</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QPushButton" name="wires_button">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Fix Wiring</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="shields_button">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Prime Shields</string>
+             <string>Divert Accept</string>
             </property>
            </widget>
           </item>
@@ -384,33 +471,6 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QPushButton" name="stabilize_button">
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Stabilize Steering</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QPushButton" name="vent_button">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Clean Vent</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
            <widget class="QPushButton" name="swipe_button">
             <property name="enabled">
              <bool>true</bool>
@@ -425,75 +485,15 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="3">
-           <widget class="QPushButton" name="divert2_button">
+          <item row="2" column="0">
+           <widget class="QPushButton" name="download_button">
             <property name="font">
              <font>
               <pointsize>8</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Divert Accept</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QPushButton" name="course_button">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Chart Course</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QPushButton" name="align_button">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Align Engine</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="distributor_button">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Calibrate Distributor</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QPushButton" name="divert1_button">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>8</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Divert Power</string>
+             <string>Download/Upload Data</string>
             </property>
            </widget>
           </item>
@@ -528,7 +528,7 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>561</width>
+             <width>562</width>
              <height>141</height>
             </rect>
            </property>
@@ -785,7 +785,7 @@
           <item row="1" column="1">
            <widget class="QLabel" name="label_4">
             <property name="text">
-             <string>20210122ALPHA</string>
+             <string>20220203ALPHA</string>
             </property>
            </widget>
           </item>
