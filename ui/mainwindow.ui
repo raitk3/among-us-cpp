@@ -45,7 +45,7 @@
         <bool>true</bool>
        </property>
        <property name="currentIndex">
-        <number>4</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="join_tab">
         <attribute name="title">
@@ -56,7 +56,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>581</width>
+           <width>571</width>
            <height>171</height>
           </rect>
          </property>
@@ -118,7 +118,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>581</width>
+           <width>571</width>
            <height>191</height>
           </rect>
          </property>
@@ -171,10 +171,10 @@
         <widget class="QWidget" name="gridLayoutWidget_2">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>591</width>
-           <height>201</height>
+           <x>10</x>
+           <y>10</y>
+           <width>571</width>
+           <height>191</height>
           </rect>
          </property>
          <property name="font">
@@ -201,7 +201,7 @@
           <item row="0" column="2">
            <widget class="QPushButton" name="course_button">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="font">
              <font>
@@ -528,7 +528,7 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>562</width>
+             <width>551</width>
              <height>141</height>
             </rect>
            </property>
@@ -785,7 +785,7 @@
           <item row="1" column="1">
            <widget class="QLabel" name="label_4">
             <property name="text">
-             <string>20220203ALPHA</string>
+             <string>20220605ALPHA</string>
             </property>
            </widget>
           </item>
